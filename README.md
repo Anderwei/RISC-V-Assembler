@@ -99,3 +99,12 @@ isThisType | string name | const bool
 
 isThisType
 * return if `name` instruction is this group
+
+## Program Flow
+1. Separate instruction info ( like rs1, rs2, rd...etc )
+2. check if this line has label  
+    2.1 if has label, save label into label map  
+    > use label as key, tuple(start, end) as jumper and distination 
+4. fetch all label in lable map, calculate diff between jumper and distination
+5. find which instruction group this instruction belongs to
+6. convert it into machine code
