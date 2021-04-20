@@ -62,7 +62,7 @@ Name | arg  | return type
 * pure virtual function, *implenment by child class*
 #### intToBin
 * static function
-* return ++binary version++ of num, which len is size
+* return <u>binary version</u> of num, which len is size
 
 ```
 intToBin(12,4,true);
@@ -75,3 +75,27 @@ intToBin(-2,6,true);
 
 ---
 ### \{U | UJ | I | SB | S | R\} Type Instruction
+Name | arg  | return type
+---        | ---        | ---        
+*translateReuslt* | None | string
+
+#### translateResult
+* Implenment at this class, convert instruction to machine code
+
+---
+### Every Instruction
+
+Name    | type    | description
+---       | ---     |  ---
+insts_names | same as insts | const staic member
+
+insts_names
+* give instruction info (name,FUNC3,FUNC2,FUNC5)
+* point parent class `Instruction`'s insts to this
+
+Name | arg  | return type
+---        | ---        | ---     
+isThisType | string name | const bool
+
+isThisType
+* return if `name` instruction is this group
