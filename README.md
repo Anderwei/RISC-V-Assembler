@@ -56,7 +56,7 @@ Name    | type    | description
 Name | arg  | return type
 ---        | ---        | ---        
 *translateResult* | **None** |  string 
-*intToBin* | **int** num<br>**int** size<br>**bool** reversed=true | string
+*intToBin* | **int** num,<br>**int** size,<br>**bool** reversed=true | string
 
 #### translateResult  
 * pure virtual function, *implenment by child class*
