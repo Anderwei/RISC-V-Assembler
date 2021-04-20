@@ -31,8 +31,8 @@ g++ -Wall -std=c++14 -g main.cpp -o main
 
 variable    | type    | description
 ---       | ---     |  ---
-*insts*    | map<string,vector<string>> | store instruction's information<br> key is inst's name
-*insts[ins name]*    | vector<string> |  store Func3,Func2,Func5 in order<br> is "" if empty
+*insts*    | map<string,vector<string>> | store instruction's information.<br> key is inst's name.
+*insts[ins name]*    | vector<string> |  store Func3,Func2,Func5 in order.<br> is "" if empty.
 *FUNC3* | int=0 | position in insts[ins name]
 *FUNC2* | int=1 | position in insts[ins name]
 *FUNC5* | int=2 | position in insts[ins name]
