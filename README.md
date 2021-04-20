@@ -83,7 +83,7 @@ Name | arg  | return type
 * Implenment at this class, convert instruction to machine code
 
 ---
-### Every Instruction
+### Instruction Group
 
 Name    | type    | description
 ---       | ---     |  ---
