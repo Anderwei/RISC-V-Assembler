@@ -82,10 +82,10 @@ public:
 class U_Type_Instruction:public Instruction{
 public:
     U_Type_Instruction(string name,string rd,string rs1,string rs2,int imme):Instruction(name,rd,rs1,rs2,imme){}
-    virtual string translateResult(){
+    string translateResult(){
         string result;
 
-        result += Instruction::intToBin(this->imme,20); // first 20 bit imm
+        result += Instruction::intToBin(this->imme,32).substr(0,20); // first 20 bit imm
         result += Instruction::regToBin(this->rd);
         result += this->opcode;
         return result;
@@ -174,8 +174,8 @@ public:
             result += imm[i];
         }
 
-        result += Instruction::regToBin(this->rs1);
         result += Instruction::regToBin(this->rd);
+        result += Instruction::regToBin(this->rs1);
         result += (*this->insts->find(this->name)).second[FUNC3];
         
         // imm[4:0]
@@ -608,7 +608,7 @@ int main(int argc, char* argv[]){
 
                 if(isNeg){ // give sign
                     imme *= -1;
-                }
+                }   
 
             }else{  // third column is Label
             
@@ -662,7 +662,9 @@ int main(int argc, char* argv[]){
             i.second.first = pair's first => jumper instruction
             i.scond.second = destination 
         */
-        insts[i.second.first].imme = (i.second.second - i.second.first) * 4;
+        if(i.second.first != -1 && i.second.second != -1){
+            insts[i.second.first].imme = (i.second.second - i.second.first) * 4;
+        }
     }
 
     vector<string> results;
@@ -707,6 +709,7 @@ int main(int argc, char* argv[]){
     for(auto i: results){
         out<<i<<"\n";
     }
+
 
     return 0;
 }
